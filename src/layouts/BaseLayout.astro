@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const path = (route: string) => `${base}${route}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ce1a1b" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" href={path("/app-icon.png")} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(path("/app-icon.png"), Astro.site)} />
+    <title>{title}</title>
+  </head>
+  <body class="text-base-content antialiased">
+    <a
+      href="#inhalt"
+      class="bg-base-100 fixed top-2 left-2 z-50 -translate-y-20 rounded-lg px-4 py-3 font-semibold shadow-lg focus:translate-y-0"
+    >
+      Zum Inhalt springen
+    </a>
+
+    <header class="border-base-300/80 border-b bg-base-100/85 backdrop-blur">
+      <nav class="navbar site-shell min-h-20 px-0" aria-label="Hauptnavigation">
+        <div class="navbar-start">
+          <a
+            class="flex items-center gap-3 rounded-lg font-bold"
+            href={path("/")}
+            aria-label="Month Atlas – Startseite"
+          >
+            <img
+              class="brand-mark size-10 rounded-xl"
+              src={path("/app-icon.png")}
+              width="40"
+              height="40"
+              alt=""
+            />
+            <span class="hidden sm:inline">Month Atlas</span>
+          </a>
+        </div>
+        <div class="navbar-end gap-1 text-sm font-semibold sm:gap-3">
+          <a class="link link-hover rounded-lg px-2 py-3 sm:px-3" href={path("/impressum/")}>Impressum</a>
+          <a class="link link-hover rounded-lg px-2 py-3 sm:px-3" href={path("/datenschutz/")}>Datenschutz</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inhalt">
+      <slot />
+    </main>
+
+    <footer class="footer footer-horizontal border-base-300 mt-20 border-t py-10">
+      <div class="site-shell flex w-full flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} André Weihe</p>
+        <nav class="flex flex-wrap gap-x-5 gap-y-3" aria-label="Rechtliche Hinweise">
+          <a class="link link-hover" href={path("/impressum/")}>Impressum</a>
+          <a class="link link-hover" href={path("/datenschutz/")}>Datenschutz</a>
+          <a class="link link-hover" href="mailto:andre@andreweihe.de">Kontakt</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

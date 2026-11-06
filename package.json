@@ -1,0 +1,25 @@
+{
+  "name": "month-atlas-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "check": "astro check",
+    "test": "npm run build && node --test tests/site.test.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "astro": "^7.4.7",
+    "daisyui": "^5.7.50",
+    "tailwindcss": "^4.3.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^6.0.3"
+  }
+}
