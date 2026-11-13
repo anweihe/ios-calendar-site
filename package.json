@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "check": "astro check",
-    "test": "npm run build && node --test tests/site.test.mjs"
+    "test": "npm run build && node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.4",

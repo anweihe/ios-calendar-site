@@ -1,0 +1,14 @@
+---
+import { pagePath, type Language, type Page } from "../i18n/routes";
+import { translations } from "../i18n/translations";
+interface Props { lang: Language; page: Page; }
+const { lang, page } = Astro.props;
+const languages: Language[] = ["de", "en"];
+---
+<nav class="language-switcher" aria-label={translations[lang].common.language}>
+  {languages.map((language) => (
+    <a href={pagePath(page, language)} lang={language} hreflang={language}
+      data-language={language} aria-label={language === "de" ? "Deutsch" : "English"}
+      aria-current={lang === language ? "page" : undefined}>{language.toUpperCase()}</a>
+  ))}
+</nav>

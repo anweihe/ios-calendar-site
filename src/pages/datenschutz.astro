@@ -5,6 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout
   title="Datenschutzerklärung – Month Atlas"
   description="Datenschutzhinweise für die Website und iPhone-App Month Atlas."
+  page="privacy"
 >
   <article class="legal site-shell py-16 sm:py-24">
     <p class="text-primary mb-4 text-sm font-bold tracking-[0.16em] uppercase">Website und App</p>
@@ -63,6 +64,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       setzt selbst keine Cookies und verwendet kein Kontaktformular. Ob GitHub im Rahmen seiner eigenen Dienste Cookies oder ähnliche
       Technologien einsetzt, richtet sich nach den Bedingungen von GitHub.
     </p>
+    <h3>Sprachwahl im Browser</h3>
+    <p>
+      Beim ersten Aufruf der deutschen Startseite wird die bevorzugte Browsersprache lokal ausgewertet:
+      Deutsch führt zur deutschen, jede andere Sprache zur englischen Version. Direkte Links auf Unterseiten behalten ihre Sprache.
+      Deine Sprachwahl wird ausschließlich im Sitzungsspeicher des aktuellen Browser-Tabs (sessionStorage) gespeichert,
+      nicht in Cookies oder dauerhaft im Local Storage. Sie wird nicht an einen Analysedienst übermittelt.
+      Ist der Sitzungsspeicher gesperrt, kann die manuelle Auswahl als lang-Parameter in der URL stehen.
+      Die Verarbeitung dient der gewünschten Sprachdarstellung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
+    </p>
 
     <h3>Verschlüsselung</h3>
     <p>
@@ -77,7 +87,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       Termintitel, Zeitangaben, Orte, Notizen, URLs, Wiederholungen und Erinnerungen.
     </p>
     <p>
-      Diese Inhalte verbleiben in Apples EventKit und werden nur vorübergehend im Arbeitsspeicher der App verarbeitet. Month Atlas
+      Die Kalenderdaten werden über Apples EventKit verwaltet und in der App für Anzeige, Suche und Bearbeitung verarbeitet. Month Atlas
       betreibt keinen eigenen Kalender-Server und überträgt keine Namen von Kalendern, Termininhalte oder Termin- und Kalenderkennungen
       an Aptabase. Soweit auf dem iPhone Kalenderkonten eingerichtet sind, kann iOS die Daten nach den Bedingungen des jeweiligen
       Kalenderanbieters synchronisieren. Darauf hat Month Atlas keinen Einfluss.
@@ -91,9 +101,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h3>Lokale Einstellungen</h3>
     <p>
       Die App speichert auf dem Gerät Einstellungen zur Kalenderauswahl, Darstellung, Größe des Tagesbereichs, Auswahl eines
-      Feiertagskalenders und gegebenenfalls app-spezifische Kalenderfarben. Dafür wird die iOS-Schnittstelle UserDefaults verwendet.
+      Ferienkalenders, App-Sprache, Terminmitteilungen und gegebenenfalls app-spezifische Kalenderfarben.
+      Dafür wird die iOS-Schnittstelle UserDefaults verwendet.
       Diese Einstellungen können durch Löschen der App entfernt werden. Termininhalte werden nicht in einer eigenen App-Datenbank
       gespeichert.
+    </p>
+
+    <h3>Lokale Terminmitteilungen</h3>
+    <p>
+      Mit deiner iOS-Mitteilungsberechtigung plant Month Atlas lokale Benachrichtigungen für zeitbezogene Hinweise an Terminen.
+      Dafür werden Termintitel, Beginn, Fälligkeitszeitpunkt und die zur Zuordnung benötigten Kennungen an das lokale
+      iOS-Mitteilungssystem übergeben. Geplante Mitteilungen bleiben dort bis zur Zustellung oder Entfernung gespeichert,
+      auch wenn die App nicht läuft. Es gibt keinen eigenen Push-Server; diese Angaben werden nicht an Aptabase übertragen.
+    </p>
+    <p>
+      Termintitel und Beginn können auf dem Sperrbildschirm erscheinen. Die Sichtbarkeit steuerst du über die Vorschau-Einstellungen
+      von iOS. Eigene Terminmitteilungen kannst du in der App ausschalten oder die Berechtigung in iOS entziehen.
+      Die Verarbeitung erfolgt zur Bereitstellung dieser Funktion auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
     </p>
 
     <h3>Datensparsame Nutzungsanalyse mit Aptabase</h3>
@@ -161,6 +185,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </p>
 
     <h2>7. Stand dieser Erklärung</h2>
-    <p>Stand: 6. November 2026</p>
+    <p>Stand: 13. November 2026</p>
   </article>
 </BaseLayout>

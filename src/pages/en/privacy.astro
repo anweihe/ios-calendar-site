@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Privacy policy – Month Atlas"
+  description="Privacy information for the Month Atlas website and iPhone app."
+  lang="en"
+  page="privacy"
+>
+  <article class="legal site-shell py-16 sm:py-24">
+    <p class="text-primary mb-4 text-sm font-bold tracking-[0.16em] uppercase">Website and app</p>
+    <h1>Privacy policy</h1>
+
+    <p>This privacy policy explains how personal data is processed when you visit this website or use the Month Atlas iPhone app.</p>
+
+    <h2>1. Controller</h2>
+    <address>
+      André Weihe<br />
+      c/o Block Services<br />
+      Stuttgarter Str. 106<br />
+      70736 Fellbach<br />
+      Germany<br />
+      Email: <a class="link link-primary" href="mailto:andre@andreweihe.de">andre@andreweihe.de</a>
+    </address>
+
+    <h2>2. Providing this website</h2>
+    <h3>Hosting with GitHub Pages</h3>
+    <p>
+      This static website is hosted on GitHub Pages. The provider for a free personal GitHub account is GitHub, Inc.,
+      88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. GitHub also lists GitHub B.V., Prins Bernhardplein 200,
+      1097 JB Amsterdam, the Netherlands, as a possible controller for its own processing.
+    </p>
+    <p>
+      According to GitHub, visiting a GitHub Pages website causes the visitor’s IP address to be logged and stored for security
+      purposes. GitHub’s general privacy statement also describes the processing of technical information such as browser,
+      operating system, device and request information, date, time and referrer.
+    </p>
+    <p>
+      The legal basis is Article 6(1)(f) GDPR. Our legitimate interest is the secure, reliable and efficient provision of this
+      information service. GitHub does not publish a fixed retention period for GitHub Pages access logs. It states that data
+      is retained as long as necessary for its purposes and to meet legal obligations, maintain security and enforce agreements.
+    </p>
+    <p>
+      Processing may take place in the USA and other countries. For transfers from the European Economic Area, GitHub refers
+      to the European Commission’s standard contractual clauses and states that GitHub, Inc. is certified under the EU–US Data Privacy Framework.
+    </p>
+    <p>
+      For more information, see{" "}
+      <a class="link link-primary" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>
+      {" "}and its{" "}
+      <a class="link link-primary" href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">information about GitHub Pages</a>.
+    </p>
+
+    <h3>No tracking services of our own</h3>
+    <p>
+      This website does not embed its own audience analytics, advertising, external fonts, videos or social media content.
+      It does not set cookies or use a contact form. Any cookies or similar technologies used by GitHub for its own services
+      are governed by GitHub’s terms.
+    </p>
+    <h3>Language selection in your browser</h3>
+    <p>
+      On your first visit to the German homepage, your preferred browser language is evaluated locally: German leads to the
+      German version; any other language leads to English. Direct links to subpages retain their language. Your language choice
+      is stored only in the current browser tab’s sessionStorage, not in cookies or persistent localStorage. It is not sent to an
+      analytics service. If session storage is blocked, a manual choice may appear as a lang parameter in the URL.
+      The legal basis is Article 6(1)(f) GDPR, for providing the desired language.
+    </p>
+
+    <h3>Encryption</h3>
+    <p>GitHub Pages serves this website over HTTPS, encrypting the connection between your browser and the website.</p>
+
+    <h2>3. Using the Month Atlas app</h2>
+    <h3>Calendar access through EventKit</h3>
+    <p>
+      Month Atlas requires the full calendar event access provided by iOS to display, create, change and delete calendars’ events.
+      The app processes information including calendar names and colors, event titles, times, locations, notes, URLs, recurrence and alerts.
+    </p>
+    <p>
+      Calendar data is managed through Apple’s EventKit and processed in the app for display, search and editing. Month Atlas does
+      not operate its own calendar server and does not send calendar names, event content, or event and calendar identifiers to Aptabase.
+      If calendar accounts are set up on your iPhone, iOS may synchronize data under the respective calendar provider’s terms.
+      Month Atlas has no influence over this.
+    </p>
+    <p>
+      The legal basis is Article 6(1)(b) GDPR, to provide the app functions you request. You can change or revoke calendar access
+      in the iOS settings at any time. Without calendar access, the app cannot perform its essential functions.
+    </p>
+
+    <h3>Local settings</h3>
+    <p>
+      The app stores settings on your device for calendar selection, appearance, day panel size, holiday calendar selection,
+      app language, event notifications and, where applicable, app-specific calendar colors. It uses the iOS UserDefaults interface
+      for this. These settings can be removed by deleting the app. Event content is not stored in a separate app database.
+    </p>
+
+    <h3>Local event notifications</h3>
+    <p>
+      With your iOS notification permission, Month Atlas schedules local notifications for time-based event alerts. Event titles,
+      start times, notification times and the identifiers needed to associate notifications with events are passed to the local
+      iOS notification system. Scheduled notifications remain stored there until delivery or removal, even when the app is not
+      running. There is no app-operated push server; this information is not sent to Aptabase.
+    </p>
+    <p>
+      Event titles and start times may appear on the lock screen. You control their visibility in the iOS notification preview
+      settings. You can switch off the app’s event notifications in the app or revoke notification permission in iOS.
+      The legal basis is Article 6(1)(b) GDPR, to provide this function.
+    </p>
+
+    <h3>Data-minimizing usage analytics with Aptabase</h3>
+    <p>
+      Release versions running on physical devices use Aptabase, a service provided by Technov Solutions SRL, Bucharest, Romania.
+      The app sends events for app launches, successful event creation, actual changes to a calendar’s color and changes to
+      adaptive week height. For week height, the numeric on/off state is also transmitted.
+    </p>
+    <p>
+      Aptabase adds technical information including a timestamp, random session identifier, app and build version, SDK version,
+      operating system and version, device model, language and debug status. Country and region are derived from the IP address
+      on the server. According to Aptabase, IP addresses and user agents are processed only temporarily in memory and are not
+      stored in the analytics dataset. An app-specific daily hash is created using a regularly changing salt;
+      the salt is deleted within 48 hours.
+    </p>
+    <p>
+      In particular, Aptabase receives no calendar names, event text, locations, notes, URLs, identifiers or color codes.
+      The integration does not use an advertising ID, device ID, cookies or persistent user identifier and is not used to track
+      people across apps or websites. Error and crash reporting is not enabled.
+    </p>
+    <p>
+      The legal basis is Article 6(1)(f) GDPR. Our legitimate interest is understanding the actual use of basic functions and
+      improving the app accordingly. Aptabase processes data on our behalf in its EU region. For that region, Aptabase lists
+      Tinybird Data S.L. in Spain and Amazon Web Services EMEA SARL as subprocessors. According to the provider, analytics data
+      is stored for no more than five years, or until the app project in Aptabase or the Aptabase customer account is deleted.
+    </p>
+    <p>
+      For more information, see{" "}
+      <a class="link link-primary" href="https://aptabase.com/legal/privacy">Aptabase’s privacy policy</a>, its{" "}
+      <a class="link link-primary" href="https://aptabase.com/legal/dpa">data processing agreement</a>{" "}and its{" "}
+      <a class="link link-primary" href="https://aptabase.com/docs/apple-app-privacy">Apple app privacy guidance</a>.
+    </p>
+
+    <h2>4. Contact by email</h2>
+    <p>
+      If you contact us by email, we process your email address, message and any other information you provide to answer your
+      request. The legal basis is Article 6(1)(b) GDPR for contractual or pre-contractual matters; otherwise, it is Article 6(1)(f)
+      GDPR, reflecting our legitimate interest in answering enquiries. Data is deleted once the request has been resolved,
+      unless statutory retention obligations apply.
+    </p>
+
+    <h2>5. Retention</h2>
+    <p>
+      Unless this policy specifies a more precise period, we retain personal data only for as long as necessary for the relevant
+      purpose or required by law. Following a justified deletion request, data is deleted unless legal grounds require further storage.
+    </p>
+
+    <h2>6. Your rights</h2>
+    <p>Subject to the applicable legal requirements, you have the right to:</p>
+    <ul>
+      <li>access the personal data processed about you;</li>
+      <li>rectify inaccurate data;</li>
+      <li>request erasure or restriction of processing;</li>
+      <li>data portability, where the requirements are met;</li>
+      <li>object to processing based on legitimate interests; and</li>
+      <li>lodge a complaint with a data protection supervisory authority.</li>
+    </ul>
+    <p>
+      If processing is based on Article 6(1)(f) GDPR, you may object on grounds relating to your particular situation.
+      To exercise your rights, email{" "}
+      <a class="link link-primary" href="mailto:andre@andreweihe.de">andre@andreweihe.de</a>.
+    </p>
+
+    <h2>7. Last updated</h2>
+    <p>Last updated: November 13, 2026</p>
+  </article>
+</BaseLayout>

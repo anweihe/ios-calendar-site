@@ -1,19 +1,23 @@
 ---
 import "../styles/global.css";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import { pagePath, sitePath as path, type Language, type Page } from "../i18n/routes";
+import { translations } from "../i18n/translations";
 
 interface Props {
   title: string;
   description: string;
+  lang?: Language;
+  page?: Page;
 }
 
-const { title, description } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const path = (route: string) => `${base}${route}`;
+const { title, description, lang = "de", page = "home" } = Astro.props;
+const t = translations[lang].common;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang} data-page={page} data-home-en={pagePath("home", "en")}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,58 +26,56 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/png" href={path("/app-icon.png")} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="de" href={new URL(pagePath(page, "de"), Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(pagePath(page, "en"), Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(pagePath(page, "de"), Astro.site)} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+    <meta property="og:locale:alternate" content={lang === "de" ? "en_US" : "de_DE"} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(path("/app-icon.png"), Astro.site)} />
     <title>{title}</title>
+    <script is:inline src={path("/language.js")}></script>
   </head>
   <body class="text-base-content antialiased">
     <a
       href="#inhalt"
       class="bg-base-100 fixed top-2 left-2 z-50 -translate-y-20 rounded-lg px-4 py-3 font-semibold shadow-lg focus:translate-y-0"
     >
-      Zum Inhalt springen
+      {t.skip}
     </a>
 
     <header class="border-base-300/80 border-b bg-base-100/85 backdrop-blur">
-      <nav class="navbar site-shell min-h-20 px-0" aria-label="Hauptnavigation">
-        <div class="navbar-start">
-          <a
-            class="flex items-center gap-3 rounded-lg font-bold"
-            href={path("/")}
-            aria-label="Month Atlas – Startseite"
-          >
-            <img
-              class="brand-mark size-10 rounded-xl"
-              src={path("/app-icon.png")}
-              width="40"
-              height="40"
-              alt=""
-            />
-            <span class="hidden sm:inline">Month Atlas</span>
-          </a>
-        </div>
-        <div class="navbar-end gap-1 text-sm font-semibold sm:gap-3">
-          <a class="link link-hover rounded-lg px-2 py-3 sm:px-3" href={path("/impressum/")}>Impressum</a>
-          <a class="link link-hover rounded-lg px-2 py-3 sm:px-3" href={path("/datenschutz/")}>Datenschutz</a>
+      <nav class="navbar site-shell min-h-20 flex-wrap justify-between gap-x-3 gap-y-2 px-0 py-3" aria-label={t.navigation}>
+        <a
+          class="flex items-center gap-3 rounded-lg font-bold"
+          href={pagePath("home", lang)}
+          aria-label={t.home}
+        >
+          <img class="brand-mark size-10 rounded-xl" src={path("/app-icon.png")} width="40" height="40" alt="" />
+          <span class="hidden sm:inline">Month Atlas</span>
+        </a>
+        <div class="ml-auto flex max-w-full flex-wrap items-center justify-end gap-1 text-sm font-semibold sm:gap-3">
+          <a class="link link-hover inline-flex min-h-11 items-center rounded-lg px-2 py-3 sm:px-3" href={pagePath("imprint", lang)}>{t.imprint}</a>
+          <a class="link link-hover inline-flex min-h-11 items-center rounded-lg px-2 py-3 sm:px-3" href={pagePath("privacy", lang)}>{t.privacy}</a>
+          <LanguageSwitcher lang={lang} page={page} />
         </div>
       </nav>
     </header>
 
-    <main id="inhalt">
+    <main id="inhalt" tabindex="-1">
       <slot />
     </main>
 
     <footer class="footer footer-horizontal border-base-300 mt-20 border-t py-10">
       <div class="site-shell flex w-full flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} André Weihe</p>
-        <nav class="flex flex-wrap gap-x-5 gap-y-3" aria-label="Rechtliche Hinweise">
-          <a class="link link-hover" href={path("/impressum/")}>Impressum</a>
-          <a class="link link-hover" href={path("/datenschutz/")}>Datenschutz</a>
-          <a class="link link-hover" href="mailto:andre@andreweihe.de">Kontakt</a>
+        <nav class="flex flex-wrap gap-x-5 gap-y-3" aria-label={t.more}>
+          <a class="link link-hover" href={pagePath("imprint", lang)}>{t.imprint}</a>
+          <a class="link link-hover" href={pagePath("privacy", lang)}>{t.privacy}</a>
+          <a class="link link-hover" href="mailto:andre@andreweihe.de">{t.contact}</a>
         </nav>
       </div>
     </footer>
